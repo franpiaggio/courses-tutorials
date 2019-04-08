@@ -59,6 +59,7 @@ graph.addEdge('Fran', 'Flor')
 graph.addEdge('Flor', 'Fran')
 graph.addEdge('Fran', 'Mora')
 
+console.log('--- Graph 1 not directed ---')
 console.log(graph.print())
 
 const graph2 = createGraph();
@@ -67,4 +68,5 @@ graph2.addNode('Flor')
 
 graph2.addEdge('Fran', 'Flor')
 
+console.log('--- Graph 2 directed ---')
 console.log(graph2.print())
