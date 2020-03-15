@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let on = false;
+        function setup() {
+            createCanvas(600, 400)
+        }
+
+        function draw() {
+            if(on){
+                background(0,255,0)
+            }else{
+                background(0)
+            }
+
+            stroke(255)
+            strokeWeight(4)
+            noFill()
+
+            rectMode(CENTER);
+            rect(300,200,100,100);
+
+        }
+
+        function mousePressed(){
+            if(mouseX > 250 && mouseX < 350){
+                if(mouseIsPressed){
+                    on = !on
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

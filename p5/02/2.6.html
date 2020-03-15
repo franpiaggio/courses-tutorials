@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let y = 200;
+        let x = 200;
+
+        let extrcanvas;
+
+        function setup() {
+            createCanvas(400, 400)
+            extraCanvas = createGraphics(400,400)
+            extraCanvas.background(255,0,0)
+            extraCanvas.clear()
+        }
+
+        function draw() {
+            background(0)
+
+            if(mouseIsPressed){
+                extraCanvas.fill( 255, 150)
+                extraCanvas.noStroke()
+                extraCanvas.ellipse(mouseX, mouseY, 10, 10)
+            }
+            image(extraCanvas,0,0)
+
+            x += random(-5, 5)
+            y += random(-5, 5)
+            fill(255, 0, 0)
+            stroke(255)
+            rectMode(CENTER)
+            rect(x,y,20,20)
+        }
+    </script>
+</body>
+
+</html>

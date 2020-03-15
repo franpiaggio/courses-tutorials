@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let ball = {
+            x: 300,
+            y: 200,
+            xspeed: 8,
+            yspeed: -5,
+            r: 0,
+            g: 0,
+            b: 0
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight)
+        }
+
+        function draw() {
+            background(0);
+            move();
+            bounce();
+            display();
+        }
+
+        function move(){
+            ball.x = ball.x + ball.xspeed;
+            ball.y = ball.y + ball.yspeed;
+        }
+
+        function bounce(){
+            if(ball.x > width - 25 || ball.x < 25){
+                ball.xspeed = ball.xspeed * -1;
+                ball.r = random(255);
+                ball.g = random(255);
+                ball.b = random(255);
+            }
+
+            if(ball.y > height - 25 || ball.y < 25){
+                ball.yspeed = ball.yspeed * -1;
+                ball.r = random(255);
+                ball.g = random(255);
+                ball.b = random(255);
+            }
+        }
+
+        function display(){
+            stroke(255);
+            fill(ball.r,ball.g,ball.b)
+            ellipse(ball.x, ball.y, 50, 50)
+        }
+        
+        window.onresize = function(){
+            setup()
+        }
+    </script>
+</body>
+
+</html>

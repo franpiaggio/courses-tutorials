@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let circleX = 0
+        let circleY = 0
+        function setup(){
+            createCanvas(600,400)
+        }
+        function draw(){     
+            background(10, 50, 100)
+            
+            circleX = circleX + 1
+            circleY = circleY + 0.5
+            fill(250, 200, 200)
+            ellipse(circleX, circleY, 100, 100)
+        }
+
+    </script>
+</body>
+</html>

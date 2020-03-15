@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+
+        function setup() {
+            createCanvas(600, 400)
+        }
+
+        function draw() {
+            background(0);
+            lollipop(100,100, 50);
+            lollipop(300,200, 100);
+            
+        }
+
+        function lollipop(x,y, diameter){
+            fill(0,200,255);
+            rect(x-10,y,20,150);
+
+            fill(255,0,200);
+            ellipse(x,y,diameter,diameter);
+        }
+
+        window.onresize = function(){
+            setup()
+        }
+    </script>
+</body>
+
+</html>

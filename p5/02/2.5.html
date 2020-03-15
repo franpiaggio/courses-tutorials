@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let spot = {
+            x: 100,
+            y: 50
+        }
+
+        let color = {
+            r: 255,
+            g: 0,
+            b: 0
+        }
+        function setup(){
+            createCanvas(windowWidth,windowHeight)
+            background(0)
+        }
+        function draw(){
+            color.r = random(0, 255)
+            color.g = random(0, 255)
+            color.b = random(0, 255)
+            spot.x = random(0, windowWidth)
+            spot.y = random(0, windowHeight)
+            fill(color.r, color.g, color.b)
+            ellipse(spot.x, spot.y, 24, 24)
+        }
+    </script>
+</body>
+</html>

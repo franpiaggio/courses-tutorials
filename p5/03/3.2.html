@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let x = 0;
+        let speed = 2;
+        let aceleration = 1;
+
+        let rgb = [0, 0, 0]
+
+        function setup() {
+            createCanvas(windowWidth, 400)
+        }
+
+        function draw() {
+            background(0)
+
+            stroke(255)
+            strokeWeight(4)
+            fill(rgb[0], rgb[1], rgb[2])
+        
+            ellipse(x, 200, 100, 100)
+            
+            if(x > width - 50){
+                speed = -2 * aceleration
+                aceleration++;
+                changeColors();
+            }
+
+            if(x < 50){
+                speed = 2 * aceleration
+                aceleration++;
+                changeColors();
+            }
+
+            x = x + speed
+        }
+
+        function changeColors(){
+            rgb[0] = random(255)
+            rgb[1] = random(255)
+            rgb[2] = random(255)
+        }
+    </script>
+</body>
+
+</html>

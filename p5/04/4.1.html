@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        function setup() {
+            createCanvas(600, 400)
+        }
+
+        function draw() {
+            background(0);
+            strokeWeight(4);
+            stroke(255);
+            let x = 0;
+            let y = 0;
+            while(x <= width){
+                ellipse(x, 200, 25, 25);
+                x = x + 50;
+            }
+            while(y <= height){
+                ellipse(200, y, 25, 25);
+                y = y + 50;
+            }
+        }
+    </script>
+</body>
+
+</html>

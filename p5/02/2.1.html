@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        function setup(){
+            createCanvas(600,400)
+            background(10, 50, 100)
+        }
+        function draw(){
+
+            noStroke()
+            fill(250, 200, 200, 20)
+            ellipse(mouseX, mouseY, 100, 100)
+
+            fill(200, 250, 200)
+            rect(400, 300, 50, 50)
+        }
+        function mousePressed(){
+            background(10, 50, 100)
+        }
+    </script>
+</body>
+</html>
