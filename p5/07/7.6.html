@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arrays</title>
+    <style>
+        *{
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+<script type="text/javascript">
+
+    let bubble1;
+    let bubble2;
+    function setup() {
+        createCanvas(windowWidth, windowHeight);
+            bubble1 = new Bubble(200, 200, 50);
+            bubble2 = new Bubble(210, 200, 50);
+    }
+
+    function draw() {
+        background(0);
+        if(bubble1.intersects(bubble2)){
+            background(0,255,0);
+        }
+        bubble1.move();
+        bubble1.show();
+        // bubble2.move();
+        bubble2.x = mouseX;
+        bubble2.y = mouseY;
+        bubble2.show();
+    }
+
+    class Bubble {
+        constructor(x, y, r = 50) {
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.brightness = 0;
+        }
+
+        move() {
+            this.x = this.x + random(-5, 5);
+            this.y = this.y + random(-5, 5);
+        }
+
+        show() {
+            stroke(255);
+            strokeWeight(4);
+            fill(this.brightness, 125);
+            ellipse(this.x, this.y, this.r * 2);
+        }
+
+        contains(x,y){
+            let distance = dist(x, y, this.x, this.y)
+            return distance < this.r;
+        }
+
+        intersects(otherBubble){
+            let distance = dist(this.x, this.y, otherBubble.x, otherBubble.y);
+            return distance < this.r + otherBubble.r;
+        }
+    }
+</script>
+</html>

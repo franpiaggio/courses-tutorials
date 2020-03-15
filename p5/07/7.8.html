@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arrays</title>
+    <style>
+        *{
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+<script type="text/javascript">
+    let img;
+    function preload(){
+        img = loadImage('img.jpg');
+    }
+
+    function setup() {
+        createCanvas(600, 500);
+    }
+
+    function draw() {
+        background(0);
+        image(img, 100, 100);
+        noLoop();
+    }
+</script>
+</html>

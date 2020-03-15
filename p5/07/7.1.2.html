@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arrays</title>
+    <style>
+        *{
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+<script type="text/javascript">
+
+    let bubbles = []
+    function setup() {
+        createCanvas(windowWidth, windowHeight);
+    }
+
+    function draw() {
+        background(0);
+        for(let i = 0; i < bubbles.length; i++){
+            bubbles[i].move();
+            bubbles[i].show();
+        }
+    }
+
+    function mousePressed(){
+        let b = new Bubble(mouseX, mouseY, random(20, 100));
+        bubbles.push(b);
+    }
+
+    function mouseDragged(){
+        let b = new Bubble(mouseX, mouseY, random(20, 100));
+        bubbles.push(b);
+    }
+
+    class Bubble {
+        constructor(x, y, r) {
+            this.x = x;
+            this.y = y;
+            this.r = r;
+        }
+
+        move() {
+            this.x = this.x + random(-5, 5);
+            this.y = this.y + random(-5, 5);
+        }
+
+        show() {
+            stroke(255);
+            strokeWeight(4);
+            noFill();
+            ellipse(this.x, this.y, this.r);
+        }
+    }
+</script>
+</html>
