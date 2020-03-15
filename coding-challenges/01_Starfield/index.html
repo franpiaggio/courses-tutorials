@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StarTrails</title>
+    <style>
+        *{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+<script type="text/javascript">
+
+    let stars = [];
+    let speed;
+
+    function setup() {
+        createCanvas(windowWidth, windowHeight);
+        for (let i = 0; i < 800; i++){
+            let randomWidth = random(-width,width);
+            let randomHeight = random(-height, height)
+            stars[i] = new Star(randomWidth, randomHeight, random(width));
+        }
+    }
+
+    function draw() {
+        speed = map(mouseX, 0, width, 0, 20);
+        background(0);
+        translate(width/2, height/2);
+        for (star of stars){
+            star.show();
+            star.update();
+        }
+    }
+
+    class Star {
+        constructor(x = 0,y = 0,z = 0){
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+        update(){
+            this.z = this.z - speed;
+            if(this.z < 1){
+                this.z = width;
+                this.x = random(-width,width);
+                this.y = random(-height, height)
+            }
+        }
+        show(){
+            fill(255);
+            noStroke();
+            let sx = map(this.x/this.z, 0, 1, 0, width);
+            let sy = map(this.y/this.z, 0, 1, 0, height);
+            let radius = map(this.z,0,width,16,0);
+            ellipse(sx,sy,radius,radius);
+        }
+    }
+</script>
+</html>
